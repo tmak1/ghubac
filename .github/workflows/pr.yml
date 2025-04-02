@@ -28,5 +28,11 @@ jobs:
         run: ls -l
       - name: use actions
         uses: actions/checkout@v4
+      - name: info
+        run: |
+          git branch
+          git branch -r
+          git remove -v
+          git status
       - name: list workspace after
         run: ls -l
