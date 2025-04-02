@@ -16,7 +16,7 @@ jobs:
   shell-commands:
     runs-on: ubuntu-latest
     steps:
-      - run: actions/checkout@v4
+      - uses: actions/checkout@v4
       - run: |
           ls -l
           git remote -v
