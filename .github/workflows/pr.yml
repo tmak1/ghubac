@@ -12,18 +12,11 @@ jobs:
         run: echo "Hello world"
       - name: run multi line command
         run: |
+          pwd
+          cd /
+          ls
+          $GITHUB_SHA
+          $GITHUB_REPOSITORY
+          $GITHUB_WORKSPACE
           node -v
           npm -v
-
-  parallel-run-shell-commands:
-    runs-on: ubuntu-latest
-    steps:
-      - name: check directory
-        run: ls -l
-
-  dependent-run-shell-commands:
-    runs-on: ubuntu-latest
-    needs: [run-shell-commands, parallel-run-shell-commands]
-    steps:
-      - name: echo path
-        run: echo "$PATH"
