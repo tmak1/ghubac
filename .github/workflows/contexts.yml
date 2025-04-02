@@ -12,8 +12,10 @@ jobs:
 
   conditionals:
     runs-on: ubuntu-latest
-    if: contains(fromJson('[issues]'), github.event_name)
+    if: contains(fromJson('[push, issues]'), github.event_name)
     steps:
-      - name: truepath
+      - name: trupath1
+        run: echo "I am here"
+      - name: truepath2
         if: contains(github.event.issue.labels.*.name, 'bug')
         run: echo "${{ join(github.event.issue.labels.*.name, ',') }}"
