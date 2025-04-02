@@ -32,7 +32,7 @@ jobs:
         run: |
           git branch
           git branch -r
-          git remove -v
+          git remote -v
           git status
       - name: list workspace after
         run: ls -l
