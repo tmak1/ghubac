@@ -2,7 +2,8 @@ name: Pull request
 on:
   pull_request:
     branches:
-      - feature*
+      - "!main"
+      - "feature*"
 
 jobs:
   run-shell-commands:
