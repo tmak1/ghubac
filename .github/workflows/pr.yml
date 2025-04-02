@@ -5,7 +5,7 @@ on:
       - "main"
 
 jobs:
-  checkout:
+  manual checkout:
     runs-on: ubuntu-latest
     steps:
       - name: list files in workspace (before)
@@ -19,4 +19,14 @@ jobs:
           git switch main
           git pull
       - name: list files in workspace (after)
+        run: ls -l
+
+  actions checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: list workspace before
+        run: ls -l
+      - name: use actions
+        uses: actions/checkout@v4
+      - name: list workspace after
         run: ls -l
