@@ -16,6 +16,3 @@ jobs:
     steps:
       - name: trupath1
         run: echo "I am here"
-      - name: truepath2
-        if: contains(github.event.issue.labels.*.name, 'bug')
-        run: echo "${{ join(github.event.issue.labels.*.name, ',') }}"
