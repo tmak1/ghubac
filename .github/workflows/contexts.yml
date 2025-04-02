@@ -1,18 +1,11 @@
-name: Context and expressions
-on: [push, issues]
+name: Expressions & Contexts
+on: [push, pull_request, issues, workflow_dispatch]
 
 jobs:
-  print:
+  runs-on-issues-and-prs:
     runs-on: ubuntu-latest
+    if: contains(fromJson('["issues","pull_request"]'), github.event_name)
     steps:
-      - name: print
-        run: |
-          echo "${{ github.event_name }}"
-          echo "${{ github.event.issue.labels.*.name }}"
-
-  conditionals:
-    runs-on: ubuntu-latest
-    if: contains(fromJson('["push", "issues"]'), github.event_name)
-    steps:
-      - name: trupath1
-        run: echo "I am here"
+      - name: Run only if issue has a bug label
+        if: contains(github.event.issue.labels.*.name, 'bug')
+        run: echo ${{ join(github.event.issue.labels.*.name, ', ') }}
