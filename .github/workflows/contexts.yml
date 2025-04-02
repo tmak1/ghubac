@@ -17,3 +17,11 @@ jobs:
       - name: steps contexts
         id: steps-context
         run: echo "${{ toJson(steps) }}"
+
+  conditionals:
+    runs-on: ubuntu-latest
+    if: contains(fromJson('[issue]'), github.event_name)
+    steps:
+      - name: truepath
+        if: contains(github.event.issue.labels.*.name, 'bug')
+        run: echo "${{ join(github.event.issue.labels.*.name, ',') }}"
