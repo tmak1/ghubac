@@ -1,9 +1,5 @@
 name: Pull request
-on:
-  pull_request:
-    branches:
-      - "!main"
-      - "feature*"
+on: [pull_request]
 
 jobs:
   run-shell-commands:
