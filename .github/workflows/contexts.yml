@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: github context
-        run: ${{ toJson(github) }}
+        run: echo "${{ toJson(github) }}""
       - name: job context
-        run: ${{ toJson(job) }}
+        run: echo "${{ toJson(job) }}"
       - name: secrets context
-        run: ${{ toJson(secrets) }}
+        run: echo "${{ toJson(secrets) }}"
       - name: steps contexts
-        run: ${{ toJson(steps) }}
+        run: echo "${{ toJson(steps) }}"
