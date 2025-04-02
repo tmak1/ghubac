@@ -2,6 +2,14 @@ name: Context and expressions
 on: [issues]
 
 jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print
+        run: |
+          echo "${{ github.event_name  }}"
+          echo "${{ github.event.issue.labels.*.name  }}"
+
   conditionals:
     runs-on: ubuntu-latest
     if: contains(fromJson('[issues]'), github.event_name)
