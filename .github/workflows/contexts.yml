@@ -12,7 +12,7 @@ jobs:
 
   conditionals:
     runs-on: ubuntu-latest
-    if: contains(fromJson('[push, issues]'), github.event_name)
+    if: contains(fromJson('["push", "issues"]'), github.event_name)
     steps:
       - name: trupath1
         run: echo "I am here"
