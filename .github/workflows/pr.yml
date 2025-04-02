@@ -13,6 +13,7 @@ jobs:
       - name: checkout
         run: |
           git init
+          echo $GITHUB_ACTOR
           echo "$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com"
           echo "${{ secrets.GITHUB_TOKEN }}"
           git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
