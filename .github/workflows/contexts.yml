@@ -7,8 +7,6 @@ jobs:
     steps:
       - name: github context
         run: ${{ toJson(github) }}
-      - name: runner context
-        run: ${{ toJson(runner) }}
       - name: job context
         run: ${{ toJson(job) }}
       - name: secrets context
