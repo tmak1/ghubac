@@ -13,10 +13,8 @@ jobs:
       - name: run multi line command
         run: |
           pwd
-          cd /
-          ls
-          $GITHUB_SHA
-          $GITHUB_REPOSITORY
-          $GITHUB_WORKSPACE
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
           node -v
           npm -v
