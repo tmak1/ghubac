@@ -18,3 +18,19 @@ jobs:
           echo $GITHUB_WORKSPACE
           node -v
           npm -v
+
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: list files in workspace (before)
+        run: ls -l
+      - name: checkout
+        run: |
+          git init
+          git add remote origin "https://github.com/$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
+          git pull
+          git add .
+          git commit -m 'checkout'
+          git
+      - name: list files in workspace (after)
+        run: ls -l
