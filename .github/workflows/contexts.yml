@@ -8,7 +8,7 @@ jobs:
       - name: print
         run: |
           echo "${{ github.event_name  }}"
-          echo "${{ github.event.issue.labels.*.name  }}"
+          echo "${{ github.event.issue.labels.*.name }}"
 
   conditionals:
     runs-on: ubuntu-latest
