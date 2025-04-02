@@ -5,10 +5,13 @@ jobs:
   get-contexts:
     runs-on: ubuntu-latest
     steps:
-      - name: print contexts
-        run: |
-          ${{ toJson(github) }}
-          ${{ toJson(runner) }}
-          ${{ toJson(job) }}
-          ${{ toJson(secrets) }}
-          ${{ toJson(steps) }}
+      - name: github context
+        run: ${{ toJson(github) }}
+      - name: runner context
+        run: ${{ toJson(runner) }}
+      - name: job context
+        run: ${{ toJson(job) }}
+      - name: secrets context
+        run: ${{ toJson(secrets) }}
+      - name: steps contexts
+        run: ${{ toJson(steps) }}
