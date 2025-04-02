@@ -1,0 +1,14 @@
+name: Context and expressions
+on: [push, workflow_dispatch, pull_request, issues]
+
+jobs:
+  get-contexts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print contexts
+        run: |
+          ${{ toJson(github) }}
+          ${{ toJson(runner) }}
+          ${{ toJson(job) }}
+          ${{ toJson(secrets) }}
+          ${{ toJson(steps) }}
