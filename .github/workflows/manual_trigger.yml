@@ -1,0 +1,24 @@
+name: Manual trigger
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "pick environment"
+        required: true
+        default: "qa"
+        type: choice
+        options:
+          - qa
+          - stage
+          - prod
+
+jobs:
+  shell-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - run: actions/checkout@v4
+      - run: |
+          ls -l
+          git remote -v
+          git branch
+          git status
