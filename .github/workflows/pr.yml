@@ -1,0 +1,37 @@
+name: Pull request
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  manual-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: list files in workspace (before)
+        run: ls -l
+      - name: checkout
+        run: |
+          git init
+          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
+          git remote -v
+          git fetch origin
+          git switch main
+          git pull
+      - name: list files in workspace (after)
+        run: ls -l
+
+  actions-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: list workspace before
+        run: ls -l
+      - name: use actions
+        uses: actions/checkout@v4
+      - name: info
+        run: |
+          git branch
+          git branch -r
+          git remote -v
+          git status
+      - name: list workspace after
+        run: ls -l
