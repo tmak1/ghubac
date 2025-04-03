@@ -2,9 +2,7 @@ name: Pull request
 on:
   pull_request:
     branches:
-      - mains
-      - feature
-
+      - main
 jobs:
   manual-checkout:
     runs-on: ubuntu-latest
